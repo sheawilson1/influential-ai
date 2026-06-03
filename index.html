@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>AI at Influential — Work in Progress</title>
+<style>
+  :root { --navy: #201747; --cream: #fbf7ef; --creative: #f1e63f; --charcoal: #5f616d; --pr: #0b1ee4; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--navy); color: #fff; min-height: 100vh;
+    font-family: 'Effra Trial', 'Effra', system-ui, -apple-system, sans-serif;
+    display: flex; align-items: center; justify-content: center; padding: 8vh 6vw;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 920px; width: 100%; }
+  .tag {
+    display: inline-block; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--creative); border: 1px solid rgba(241,230,63,0.4); padding: 0.4rem 0.9rem;
+    border-radius: 999px; margin-bottom: 3vh;
+  }
+  h1 { font-weight: 900; font-size: clamp(2.2rem, 5.5vw, 4rem); line-height: 0.98; letter-spacing: -0.02em; margin-bottom: 2.5vh; }
+  h1 em { font-style: normal; color: var(--creative); }
+  .intro { font-weight: 300; font-size: clamp(1rem, 1.6vw, 1.25rem); opacity: 0.85; max-width: 60ch; margin-bottom: 6vh; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  a.card {
+    display: block; text-decoration: none; color: inherit; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15); border-radius: 1rem; padding: 4vh 2.2rem;
+    transition: all 0.18s ease;
+  }
+  a.card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+  .card .num { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.55; }
+  .card h2 { font-weight: 700; font-size: 1.7rem; margin: 1.5vh 0 1vh; letter-spacing: -0.01em; }
+  .card h2 .arrow { color: var(--creative); }
+  .card p { font-weight: 300; font-size: 1rem; opacity: 0.8; line-height: 1.45; }
+  .card .status { margin-top: 2vh; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; }
+  .status.wip { color: var(--creative); }
+  .status.ok { color: #2af22f; }
+  footer { margin-top: 6vh; font-size: 0.85rem; opacity: 0.5; }
+  @media (max-width: 680px) { .cards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="tag">Work in progress · for review</span>
+    <h1>AI at Influential.<br><em>Where I'm up to.</em></h1>
+    <p class="intro">Two pieces, both still in draft. The tool guide is the one I'm happiest with so far. The deck still needs more time. Any feedback welcome.</p>
+    <div class="cards">
+      <a class="card" href="tool-guide.html">
+        <span class="num">01 / Reference</span>
+        <h2>Tool Guide <span class="arrow">&rarr;</span></h2>
+        <p>Which AI tool for which job, by department: Creative, Digital, PR, Insights. A Start here &rarr; Go build ladder.</p>
+        <div class="status ok">Further along</div>
+      </a>
+      <a class="card" href="deck.html">
+        <span class="num">02 / Presentation</span>
+        <h2>Team Deck <span class="arrow">&rarr;</span></h2>
+        <p>The intro session for the team: AI as a co-pilot, using it safely, real examples. Arrow keys to navigate.</p>
+        <div class="status wip">Earlier draft</div>
+      </a>
+    </div>
+    <footer>Shea Wilson · Influential · June 2026</footer>
+  </div>
+</body>
+</html>

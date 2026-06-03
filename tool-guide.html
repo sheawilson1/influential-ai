@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>AI Tool Guide by Department — Influential</title>
+<style>
+  :root {
+    --navy: #201747;
+    --white: #ffffff;
+    --cream: #fbf7ef;
+    --charcoal: #5f616d;
+    --digital: #2af22f;
+    --creative: #f1e63f;
+    --pr: #0b1ee4;
+    --campaign: #ff7d3a;
+    --insights: #fe2458;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Effra Trial', 'Effra', system-ui, -apple-system, sans-serif;
+    color: var(--navy);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 6vw; }
+
+  /* header */
+  header { background: var(--navy); color: var(--white); padding: 9vh 0 7vh; }
+
+  .eyebrow {
+    font-size: 0.8rem; font-weight: 300; letter-spacing: 0.3em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 2.5vh;
+  }
+
+  header h1 {
+    font-weight: 900; font-size: clamp(2.4rem, 6vw, 4.4rem);
+    line-height: 0.98; letter-spacing: -0.02em; margin-bottom: 3vh;
+  }
+  header h1 em { font-style: normal; color: var(--creative); }
+
+  header .lede {
+    font-size: clamp(1.05rem, 1.8vw, 1.4rem); font-weight: 300;
+    max-width: 62ch; opacity: 0.9;
+  }
+
+  .ladder-note {
+    margin-top: 3vh; display: flex; gap: 1.6rem; flex-wrap: wrap;
+    font-size: 0.9rem; opacity: 0.75;
+  }
+  .ladder-note span { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .ladder-note .meter i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.25); display: inline-block; }
+  .ladder-note .meter i.on { background: var(--creative); }
+
+  /* filter bar */
+  .filter {
+    position: sticky; top: 0; z-index: 50; background: var(--cream);
+    border-bottom: 1px solid rgba(32,23,71,0.12); padding: 2.2vh 0;
+  }
+  .filter .wrap { display: flex; gap: 0.7rem; flex-wrap: wrap; align-items: center; }
+  .filter .label {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--charcoal); margin-right: 0.4rem;
+  }
+  .chip {
+    border: 1.5px solid var(--navy); background: transparent; color: var(--navy);
+    padding: 0.5rem 1.1rem; border-radius: 999px; font-family: inherit;
+    font-size: 0.92rem; font-weight: 700; cursor: pointer; transition: all 0.15s ease;
+  }
+  .chip:hover { background: rgba(32,23,71,0.07); }
+  .chip.active { background: var(--navy); color: var(--white); }
+
+  /* department section */
+  .dept { padding: 8vh 0; border-bottom: 1px solid rgba(32,23,71,0.1); }
+  .dept.hidden { display: none; }
+
+  .dept-head { display: flex; align-items: baseline; gap: 1.2rem; }
+  .dept-dot { width: 0.9rem; height: 0.9rem; border-radius: 50%; flex: none; transform: translateY(-0.15rem); }
+  .dept-creative .dept-dot { background: var(--creative); }
+  .dept-digital  .dept-dot { background: var(--digital); }
+  .dept-pr       .dept-dot { background: var(--pr); }
+  .dept-insights .dept-dot { background: var(--insights); }
+
+  .dept h2 {
+    font-weight: 900; font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: -0.015em; line-height: 1;
+  }
+  .dept .dept-lede {
+    font-size: 1.1rem; font-weight: 300; color: var(--charcoal);
+    max-width: 65ch; margin: 1.5vh 0 4vh;
+  }
+
+  /* tier */
+  .tier { margin-bottom: 3.5vh; }
+  .tier-label {
+    display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.5vh;
+    font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700; color: var(--navy);
+  }
+  .meter { display: inline-flex; gap: 3px; }
+  .meter i { width: 7px; height: 7px; border-radius: 50%; background: rgba(32,23,71,0.18); }
+  .meter i.on { background: var(--navy); }
+
+  .item {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1.5rem; padding: 1.6vh 0; border-top: 1px solid rgba(32,23,71,0.1);
+  }
+  .item:first-of-type { border-top: 1px solid rgba(32,23,71,0.18); }
+  .item .task { font-weight: 500; font-size: 1.05rem; line-height: 1.3; }
+
+  .tool-pill {
+    display: inline-flex; align-items: center; gap: 0.45rem; flex: none;
+    background: var(--navy); color: var(--white); padding: 0.4rem 0.85rem;
+    border-radius: 0.5rem; font-weight: 700; font-size: 0.92rem; white-space: nowrap;
+  }
+  .tool-pill a { color: inherit; text-decoration: none; }
+  .tool-pill a:hover { text-decoration: underline; text-underline-offset: 2px; }
+  .badge {
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+    background: var(--creative); color: var(--navy); padding: 0.18rem 0.4rem;
+    border-radius: 0.3rem; font-weight: 900;
+  }
+
+  /* rules footer */
+  .rules { background: var(--navy); color: var(--white); padding: 8vh 0; }
+  .rules h2 { font-weight: 900; font-size: clamp(1.6rem, 3.5vw, 2.6rem); letter-spacing: -0.015em; margin-bottom: 1vh; }
+  .rules h2 em { font-style: normal; color: var(--digital); }
+  .rules .sub { opacity: 0.8; font-weight: 300; margin-bottom: 5vh; max-width: 60ch; }
+  .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .rules-grid h4 { color: var(--creative); font-size: 1.15rem; margin-bottom: 0.6rem; }
+  .rules-grid p { font-size: 0.98rem; opacity: 0.85; font-weight: 300; }
+
+  footer.meta {
+    background: var(--navy); color: var(--white); padding: 4vh 0 8vh;
+    opacity: 0.55; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  footer.meta .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; letter-spacing: 0.05em; }
+
+  @media (max-width: 680px) {
+    .item { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+    .rules-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Which tool,<br>for <em>your</em> job.</h1>
+    <p class="lede">Find your team, then start at the bottom of the ladder and work up. Beginner uses pay off on day one. Nothing here needs you to be technical, and everything runs on vetted accounts with a human checking the output.</p>
+    <div class="ladder-note">
+      <span><span class="meter"><i class="on"></i><i></i><i></i></span> Start here — works on day one</span>
+      <span><span class="meter"><i class="on"></i><i class="on"></i><i></i></span> Level up — a little setup</span>
+      <span><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span> Go build — make something</span>
+    </div>
+  </div>
+</header>
+
+<div class="filter">
+  <div class="wrap">
+    <span class="label">Show</span>
+    <button class="chip active" data-filter="all">All teams</button>
+    <button class="chip" data-filter="creative">Creative</button>
+    <button class="chip" data-filter="digital">Digital</button>
+    <button class="chip" data-filter="pr">PR</button>
+    <button class="chip" data-filter="insights">Insights</button>
+  </div>
+</div>
+
+<!-- CREATIVE -->
+<section class="dept dept-creative" data-dept="creative">
+  <div class="wrap">
+    <div class="dept-head"><span class="dept-dot"></span><h2>Creative</h2></div>
+    <p class="dept-lede">Clear the mechanical work so your time goes on the idea and the craft, not the production grind.</p>
+
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i></i><i></i></span> Start here</div>
+      <div class="item"><span class="task">First-draft social &amp; campaign copy</span><span class="tool-pill"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> / <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></span></div>
+      <div class="item"><span class="task">Voice-rant a brief into a usable prompt</span><span class="tool-pill"><a href="https://wisprflow.ai" target="_blank" rel="noopener">Wispr Flow</a></span></div>
+      <div class="item"><span class="task">Hex codes, clipboard history, image previews</span><span class="tool-pill"><a href="https://raycast.com" target="_blank" rel="noopener">Raycast</a></span></div>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span> Level up</div>
+      <div class="item"><span class="task">Design production, layouts &amp; variants</span><span class="tool-pill"><a href="https://figma.com" target="_blank" rel="noopener">Figma + AI</a></span></div>
+      <div class="item"><span class="task">Research a visual trend or reference fast</span><span class="tool-pill"><a href="https://perplexity.ai" target="_blank" rel="noopener">Perplexity</a></span></div>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span> Go build</div>
+      <div class="item"><span class="task">Build a custom design tool, like the border-fix plugin</span><span class="tool-pill"><a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> / <a href="https://openai.com/codex" target="_blank" rel="noopener">Codex</a> <span class="badge">soon</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL -->
+<section class="dept dept-digital" data-dept="digital">
+  <div class="wrap">
+    <div class="dept-head"><span class="dept-dot"></span><h2>Digital</h2></div>
+    <p class="dept-lede">Speed up the research and reporting grind so the time goes on the strategy.</p>
+
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i></i><i></i></span> Start here</div>
+      <div class="item"><span class="task">Ad copy variations &amp; headline angles</span><span class="tool-pill"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> / <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></span></div>
+      <div class="item"><span class="task">Quick budget, ROAS &amp; metric calculations</span><span class="tool-pill"><a href="https://raycast.com" target="_blank" rel="noopener">Raycast</a></span></div>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span> Level up</div>
+      <div class="item"><span class="task">Audience, keyword &amp; competitor research</span><span class="tool-pill"><a href="https://perplexity.ai" target="_blank" rel="noopener">Perplexity</a></span></div>
+      <div class="item"><span class="task">Summarise performance reports into a readout</span><span class="tool-pill"><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a></span></div>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span> Go build</div>
+      <div class="item"><span class="task">Build a reporting dashboard or automate a manual report</span><span class="tool-pill"><a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> / <a href="https://openai.com/codex" target="_blank" rel="noopener">Codex</a> <span class="badge">soon</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PR -->
+<section class="dept dept-pr" data-dept="pr">
+  <div class="wrap">
+    <div class="dept-head"><span class="dept-dot"></span><h2>PR</h2></div>
+    <p class="dept-lede">Fast first drafts and a sharp sceptical read. Get a release moving, never invent facts or quotes.</p>
+
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i></i><i></i></span> Start here</div>
+      <div class="item"><span class="task">Press release &amp; pitch first drafts</span><span class="tool-pill"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> / <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></span></div>
+      <div class="item"><span class="task">Voice-note a thought into a structured prompt</span><span class="tool-pill"><a href="https://wisprflow.ai" target="_blank" rel="noopener">Wispr Flow</a></span></div>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span> Level up</div>
+      <div class="item"><span class="task">Reactive / newsjacking angles, with sources</span><span class="tool-pill"><a href="https://perplexity.ai" target="_blank" rel="noopener">Perplexity</a></span></div>
+      <div class="item"><span class="task">Summarise coverage &amp; long reports</span><span class="tool-pill"><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a></span></div>
+      <div class="item"><span class="task">Spokesperson Q&amp;A prep, AI as hostile journalist</span><span class="tool-pill"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></span></div>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span> Go build</div>
+      <div class="item"><span class="task">Build a custom tool, like a coverage tracker</span><span class="tool-pill"><a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> / <a href="https://openai.com/codex" target="_blank" rel="noopener">Codex</a> <span class="badge">soon</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="dept dept-insights" data-dept="insights">
+  <div class="wrap">
+    <div class="dept-head"><span class="dept-dot"></span><h2>Insights</h2></div>
+    <p class="dept-lede">The highest value and the highest risk. AI will invent a confident, wrong statistic, so it's cited sources only, always checked.</p>
+
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i></i><i></i></span> Start here</div>
+      <div class="item"><span class="task">Summarise a long document or transcript</span><span class="tool-pill"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> / <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></span></div>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i class="on"></i><i></i></span> Level up</div>
+      <div class="item"><span class="task">Cited desk research, never cite the model itself</span><span class="tool-pill"><a href="https://perplexity.ai" target="_blank" rel="noopener">Perplexity</a></span></div>
+      <div class="item"><span class="task">Synthesise a stack of sources</span><span class="tool-pill"><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a></span></div>
+      <div class="item"><span class="task">Survey &amp; data analysis, sense-check the numbers</span><span class="tool-pill"><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> / <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></span></div>
+    </div>
+    <div class="tier">
+      <div class="tier-label"><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i></span> Go build</div>
+      <div class="item"><span class="task">Build a research tool or a "second brain" file structure</span><span class="tool-pill"><a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> / <a href="https://openai.com/codex" target="_blank" rel="noopener">Codex</a> <span class="badge">soon</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUND RULES -->
+<section class="rules">
+  <div class="wrap">
+    <h2>Three rules <em>under all of it.</em></h2>
+    <p class="sub">Whatever the tool, whatever the team, these don't change. They're the difference between AI that helps and AI that gets us in trouble.</p>
+    <div class="rules-grid">
+      <div>
+        <h4>Enterprise, not personal</h4>
+        <p>Client data only goes into vetted, enterprise accounts. Never a free personal login, that's where the leaks happen.</p>
+      </div>
+      <div>
+        <h4>Verify everything</h4>
+        <p>Facts, figures, quotes, sources. AI is confident even when it's wrong. If you'd check it from a junior, check it from AI.</p>
+      </div>
+      <div>
+        <h4>Human signs off</h4>
+        <p>Nothing client-facing ships without a person approving it. AI accelerates the work, it doesn't take responsibility for it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="meta">
+  <div class="wrap">
+    <span>AI at Influential — Tool Guide by Department</span>
+    <span>Draft v2 · Shea Wilson · June 2026</span>
+  </div>
+</footer>
+
+<script>
+  const chips = document.querySelectorAll('.chip');
+  const depts = document.querySelectorAll('.dept');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const f = chip.dataset.filter;
+      depts.forEach(d => {
+        d.classList.toggle('hidden', f !== 'all' && d.dataset.dept !== f);
+      });
+      window.scrollTo({ top: document.querySelector('.filter').offsetTop, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>

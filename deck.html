@@ -31,11 +31,7 @@
     color: var(--navy);
   }
 
-  .deck {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-  }
+  .deck { width: 100vw; height: 100vh; position: relative; }
 
   .slide {
     position: absolute;
@@ -56,9 +52,10 @@
   .slide-3 { background: var(--navy); color: var(--white); }
   .slide-4 { background: var(--cream); }
   .slide-5 { background: var(--navy); color: var(--white); }
-  .slide-6 { background: var(--insights); color: var(--white); }
-  .slide-7 { background: var(--creative); color: var(--navy); }
-  .slide-8 { background: var(--cream); }
+  .slide-6 { background: var(--deep-blue); color: var(--white); }
+  .slide-7 { background: var(--cream); }
+  .slide-8 { background: var(--navy); color: var(--white); }
+  .slide-9 { background: var(--cream); }
 
   /* shared type */
   .eyebrow {
@@ -71,7 +68,6 @@
   }
 
   h1 {
-    font-family: 'Effra Trial', 'Effra', system-ui, sans-serif;
     font-weight: 900;
     font-size: 7vw;
     line-height: 0.95;
@@ -80,290 +76,147 @@
   }
 
   h2 {
-    font-family: 'Effra Trial', 'Effra', system-ui, sans-serif;
     font-weight: 700;
-    font-size: 4.5vw;
+    font-size: 4.2vw;
     line-height: 1;
     letter-spacing: -0.015em;
     margin-bottom: 3vh;
   }
 
-  h3 {
-    font-weight: 700;
-    font-size: 2.4vw;
-    line-height: 1.05;
-    margin-bottom: 0.6vh;
-  }
+  h3 { font-weight: 700; font-size: 2.4vw; line-height: 1.05; margin-bottom: 0.6vh; }
 
-  p, li {
-    font-weight: 300;
-    font-size: 1.5vw;
-    line-height: 1.45;
-  }
+  p, li { font-weight: 300; font-size: 1.5vw; line-height: 1.45; }
 
-  .lede {
-    font-size: 2vw;
-    font-weight: 300;
-    max-width: 70ch;
-    line-height: 1.35;
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 0.6vh 1.2vw;
-    font-size: 1vw;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    border-radius: 999px;
-  }
+  .lede { font-size: 1.9vw; font-weight: 300; max-width: 72ch; line-height: 1.35; }
 
   /* nav */
   .nav {
     position: fixed;
-    bottom: 2vh;
-    right: 2vw;
+    bottom: 2vh; right: 2vw;
     z-index: 100;
-    display: flex;
-    gap: 0.8vw;
-    align-items: center;
-    font-size: 0.9vw;
-    color: var(--charcoal);
-    font-weight: 300;
+    display: flex; gap: 0.8vw; align-items: center;
+    font-size: 0.9vw; font-weight: 300;
     mix-blend-mode: difference;
     color: #888;
   }
-
   .nav button {
-    background: none;
-    border: 1px solid currentColor;
-    color: inherit;
-    width: 2.2vw;
-    height: 2.2vw;
-    border-radius: 50%;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9vw;
+    background: none; border: 1px solid currentColor; color: inherit;
+    width: 2.2vw; height: 2.2vw; border-radius: 50%;
+    cursor: pointer; font-family: inherit; font-size: 0.9vw;
+  }
+  .nav button:hover { background: rgba(255,255,255,0.1); }
+
+  .slide-num {
+    position: absolute; top: 6vh; right: 8vw;
+    font-size: 0.9vw; letter-spacing: 0.2em; opacity: 0.5;
   }
 
-  .nav button:hover { background: rgba(255,255,255,0.1); }
+  .brandmark { position: absolute; top: 6vh; left: 8vw; height: 6.5vh; width: auto; opacity: 0.85; }
+  .slide-1 .brandmark { height: 8.5vh; opacity: 1; }
 
   /* slide 1 */
   .s1-wordmark {
-    position: absolute;
-    top: 6vh;
-    left: 8vw;
-    font-size: 1vw;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    opacity: 0.6;
+    position: absolute; top: 6vh; left: 8vw;
+    font-size: 1vw; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.6;
   }
-
   .s1-meta {
-    position: absolute;
-    bottom: 6vh;
-    left: 8vw;
-    display: flex;
-    gap: 4vw;
-    font-size: 1vw;
-    opacity: 0.6;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    position: absolute; bottom: 6vh; left: 8vw;
+    display: flex; gap: 4vw; font-size: 1vw; opacity: 0.6;
+    letter-spacing: 0.1em; text-transform: uppercase;
   }
+  .s1-title em { font-style: normal; color: var(--creative); }
 
-  .s1-title em {
-    font-style: normal;
-    color: var(--creative);
-  }
-
-  /* slide 2 — governance */
-  .s2-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5vw;
-    align-items: center;
-  }
-
-  .s2-card {
-    background: var(--navy);
-    color: var(--white);
-    padding: 4vh 3vw;
-    border-radius: 1vw;
-  }
-
+  /* slide 2 */
   .s2-title em { font-style: normal; color: var(--pr); }
-  .s2-card h3 { color: var(--creative); font-size: 1.6vw; margin-bottom: 1.5vh; }
-  .s2-card p { font-size: 1.2vw; }
 
-  .s2-points {
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
-  }
-
-  .s2-points .num {
-    color: var(--insights);
-    font-weight: 900;
-    font-size: 2vw;
-    line-height: 1;
-    margin-right: 1vw;
-  }
-
-  .s2-row {
-    display: flex;
-    gap: 1vw;
-    align-items: baseline;
-  }
-
-  /* slide 3 — human element */
-  .s3-headline em {
-    font-style: normal;
-    color: var(--digital);
-  }
-
-  .s3-rule {
-    margin-top: 4vh;
-    padding-top: 4vh;
+  /* slide 3 — mindset */
+  .s3-headline em { font-style: normal; color: var(--digital); }
+  .s3-block {
+    margin-top: 4vh; padding-top: 3.5vh;
     border-top: 1px solid rgba(255,255,255,0.2);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 3vw;
   }
-
+  .s3-bridge { font-weight: 700; font-size: 1.6vw; color: var(--creative); margin-bottom: 2.5vh; }
+  .s3-rule {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3vw;
+  }
   .s3-rule div h4 {
-    color: var(--creative);
-    font-weight: 700;
-    font-size: 1.3vw;
-    margin-bottom: 1vh;
-    letter-spacing: 0.05em;
+    color: var(--creative); font-weight: 700; font-size: 1.3vw;
+    margin-bottom: 1vh; letter-spacing: 0.05em;
   }
-
   .s3-rule div p { font-size: 1.2vw; opacity: 0.85; }
 
-  /* slides 4 & 5 — case studies */
-  .cases {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2vw;
-    margin-top: 3vh;
-  }
-
+  /* slides 4 & 5 — cases */
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2vw; margin-top: 3vh; }
   .case {
-    padding: 3vh 1.5vw;
-    border-radius: 0.8vw;
-    border: 1px solid rgba(32, 23, 71, 0.15);
-    background: var(--white);
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
+    padding: 3vh 1.5vw; border-radius: 0.8vw;
+    border: 1px solid rgba(32, 23, 71, 0.15); background: var(--white);
+    display: flex; flex-direction: column; gap: 1vh;
   }
-
-  .slide-5 .case {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.15);
-    color: var(--white);
-  }
-
+  .slide-5 .case { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: var(--white); }
+  /* slide 4 — borderless editorial cards with a colour top-rule (no white blocks) */
+  .slide-4 .case { background: transparent; border: none; border-top: 3px solid var(--navy); border-radius: 0; padding: 2.5vh 0 0 0; }
+  .slide-4 .case:nth-child(1) { border-top-color: var(--insights); }
+  .slide-4 .case:nth-child(2) { border-top-color: var(--campaign); }
+  .slide-4 .case:nth-child(3) { border-top-color: var(--pr); }
   .case .case-tag {
-    font-size: 0.8vw;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.5vh;
+    font-size: 0.8vw; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 0.5vh;
   }
-
   .slide-4 .case:nth-child(1) .case-tag { color: var(--insights); }
   .slide-4 .case:nth-child(2) .case-tag { color: var(--campaign); }
   .slide-4 .case:nth-child(3) .case-tag { color: var(--pr); }
-
   .slide-5 .case:nth-child(1) .case-tag { color: var(--digital); }
   .slide-5 .case:nth-child(2) .case-tag { color: var(--creative); }
   .slide-5 .case:nth-child(3) .case-tag { color: var(--campaign); }
-
-  .case h3 { font-size: 1.6vw; line-height: 1.05; }
+  .case h3 { font-size: 1.5vw; line-height: 1.05; }
   .case p { font-size: 1.05vw; line-height: 1.4; opacity: 0.8; }
 
-  /* slide 6 — workshop */
-  .s6-options {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2vw;
-    margin-top: 4vh;
+  .s4-close {
+    margin-top: 2.5vh; font-size: 1.35vw; font-weight: 300;
+    max-width: 70ch; line-height: 1.4;
+    padding-left: 1.2vw; border-left: 3px solid var(--campaign);
   }
+  .s4-close strong { font-weight: 700; }
 
-  .s6-option {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 3vh 1.8vw;
-    border-radius: 0.8vw;
-  }
-
-  .s6-option .letter {
-    font-size: 4vw;
-    font-weight: 900;
-    color: var(--creative);
-    line-height: 1;
-    margin-bottom: 1vh;
-  }
-
-  .s6-option h3 { font-size: 1.6vw; margin-bottom: 1vh; }
-  .s6-option p { font-size: 1.1vw; line-height: 1.4; opacity: 0.95; }
-
-  /* slide 7 — conclusion */
-  .s7-cta {
-    font-size: 2vw;
-    font-weight: 300;
-    max-width: 60ch;
-    margin-top: 2vh;
-  }
-
-  .s7-three {
-    margin-top: 5vh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2vw;
-  }
-
-  .s7-three div {
-    border-top: 3px solid var(--navy);
-    padding-top: 2vh;
-  }
-
-  .s7-three h4 { font-size: 1.4vw; margin-bottom: 0.6vh; }
-  .s7-three p { font-size: 1.05vw; }
-
-  /* slide 8 — toolkit */
-  .toolkit {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2vw 4vw;
+  /* slide 6 — workshop / interview */
+  .s6-prompt {
     margin-top: 3vh;
+    background: var(--white); border: none;
+    border-left: 5px solid var(--digital);
+    border-radius: 0.6vw; padding: 3vh 2.5vw;
+    color: var(--navy);
+    font-size: 1.2vw; line-height: 1.5; font-style: italic; max-width: 88ch;
   }
+  .s6-save { margin-top: 2vh; font-size: 1.15vw; opacity: 0.95; max-width: 80ch; }
+  .s6-save strong { font-weight: 700; font-style: normal; }
 
-  .tool {
-    padding: 2vh 0;
+  /* slide 7 — habits */
+  .habits { display: grid; grid-template-columns: 1fr 1fr; gap: 3vh 4vw; margin-top: 3vh; }
+  .habit h4 { color: var(--insights); font-weight: 700; font-size: 1.4vw; margin-bottom: 0.6vh; }
+  .habit p { font-size: 1.15vw; line-height: 1.4; color: var(--charcoal); }
+
+  /* slide 8 — the ask */
+  .s8-three { margin-top: 4vh; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5vw; }
+  .s8-three div { border-top: 3px solid var(--creative); padding-top: 2vh; }
+  .s8-three h4 { font-size: 1.4vw; margin-bottom: 0.6vh; color: var(--creative); }
+  .s8-three p { font-size: 1.1vw; line-height: 1.4; opacity: 0.9; }
+  .s8-try { margin-top: 4vh; font-weight: 700; font-size: 1.5vw; max-width: 70ch; color: var(--creative); }
+
+  /* slide 9 — toolkit + takeaways */
+  .s9-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; margin-top: 3vh; }
+  .s9-col h4.section {
+    font-size: 1vw; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--charcoal); margin-bottom: 2vh;
+  }
+  .s9-item {
+    min-height: 10vh; padding: 1.8vh 0;
     border-bottom: 1px solid rgba(32,23,71,0.15);
+    display: flex; flex-direction: column; justify-content: flex-start;
   }
-
-  .tool .name {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.5vh;
-  }
-
-  .tool h3 { font-size: 1.6vw; }
-  .tool .role { font-size: 0.9vw; color: var(--charcoal); letter-spacing: 0.15em; text-transform: uppercase; }
-  .tool p { font-size: 1.1vw; color: var(--charcoal); }
-
-  .slide-num {
-    position: absolute;
-    top: 6vh;
-    right: 8vw;
-    font-size: 0.9vw;
-    letter-spacing: 0.2em;
-    opacity: 0.5;
-  }
+  .s9-item h3 { font-size: 1.4vw; margin-bottom: 0.5vh; }
+  .s9-item p { font-size: 1.02vw; color: var(--charcoal); line-height: 1.4; }
+  .s9-link { display: inline-block; margin-top: 2vh; font-size: 1vw; color: var(--pr); font-weight: 700; text-decoration: none; }
+  .s9-link:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -372,12 +225,12 @@
 
   <!-- SLIDE 1: TITLE -->
   <section class="slide slide-1 active">
-    <div class="s1-wordmark">Influential / Internal</div>
-    <div class="slide-num">01 / 08</div>
+    <img class="brandmark" src="assets/logo-white.png" alt="Influential">
+    <div class="slide-num">01 / 09</div>
     <div>
-      <div class="eyebrow">A working session</div>
-      <h1 class="s1-title">AI isn't replacing<br>anyone here.<br><em>It's pairing with us.</em></h1>
-      <p class="lede" style="margin-top: 2vh; opacity: 0.85;">A practical look at how I've been using AI on placement, what it's actually good at, and how the team can start experimenting.</p>
+      <div class="eyebrow">Beyond the chatbot</div>
+      <h1 class="s1-title">I've been<br>exploring AI.<br><em>Here's what I found.</em></h1>
+      <p class="lede" style="margin-top: 2vh; opacity: 0.85;">No pressure to use any of it. This is honestly just how I've been using AI on placement, where it's got to now, and where it's heading, so you know what's there and can decide what's worth a try.</p>
     </div>
     <div class="s1-meta">
       <span>Shea Wilson</span>
@@ -386,181 +239,191 @@
     </div>
   </section>
 
-  <!-- SLIDE 2: GOVERNANCE -->
+  <!-- SLIDE 2: THE SHIFT -->
   <section class="slide slide-2">
-    <div class="slide-num">02 / 08</div>
-    <div class="eyebrow">Using it well</div>
-    <h2 class="s2-title">Use it freely. <br><em>Just keep it in the open.</em></h2>
-    <div class="s2-grid" style="margin-top: 4vh;">
-      <div class="s2-points">
-        <div class="s2-row">
-          <span class="num">01</span>
-          <div>
-            <h3>Be transparent</h3>
-            <p>Say when AI helped, with the team and with clients where it matters. Passing AI work off as something it wasn't is how trust breaks. "AI drafted this, I shaped it" is how it builds.</p>
-          </div>
-        </div>
-        <div class="s2-row">
-          <span class="num">02</span>
-          <div>
-            <h3>Keep it in one conversation</h3>
-            <p>Trying a new tool, or putting client data near one? Flag it first, in one channel, so IT can vet it and everyone learns from each other. Not fifteen people on fifteen private logins.</p>
-          </div>
-        </div>
-        <div class="s2-row">
-          <span class="num">03</span>
-          <div>
-            <h3>A human reviews everything</h3>
-            <p>AI drafts, a person decides. Every client-facing output passes human eyes before it leaves the building.</p>
-          </div>
-        </div>
-      </div>
-      <div class="s2-card">
-        <h3>The deal</h3>
-        <p>Use AI as much as you like. Keep it open, keep it vetted, keep a human in the loop. That's how we get the speed without the risk.</p>
-      </div>
-    </div>
+    <img class="brandmark" src="assets/logo-navy.png" alt="Influential">
+    <div class="slide-num">02 / 09</div>
+    <div class="eyebrow">Where we actually are</div>
+    <h2 class="s2-title">You're probably picturing a chatbot.<br><em>We're moving past that now.</em></h2>
+    <p class="lede" style="margin-top: 2vh;">Most people still think AI means asking a chatbot a question and getting an answer back. It can do a lot more than that now. The latest tools don't just reply with text: they can use your other software, open and work with your files, and build things for you. That's the shift worth paying attention to.</p>
   </section>
 
-  <!-- SLIDE 3: HUMAN ELEMENT -->
+  <!-- SLIDE 3: THE MINDSET -->
   <section class="slide slide-3">
-    <div class="slide-num">03 / 08</div>
-    <div class="eyebrow">The rule that doesn't change</div>
-    <h2 class="s3-headline">AI is the accelerator.<br><em>You are still the brain.</em></h2>
-    <p class="lede" style="margin-top: 2vh; opacity: 0.85;">Everything that ships to a client passes a human first. Not because AI gets things wrong (it often doesn't), but because judgement, taste, and accountability aren't outsourceable.</p>
-    <div class="s3-rule">
-      <div>
-        <h4>Verify</h4>
-        <p>Facts, figures, claims, attributions. AI is confident even when it's wrong.</p>
-      </div>
-      <div>
-        <h4>Edit</h4>
-        <p>Tone, nuance, the specific way Influential sounds. AI gets close, not there.</p>
-      </div>
-      <div>
-        <h4>Approve</h4>
-        <p>Sign-off is human. Always. No matter how good the draft.</p>
+    <img class="brandmark" src="assets/logo-white.png" alt="Influential">
+    <div class="slide-num">03 / 09</div>
+    <div class="eyebrow">The way to think about AI</div>
+    <h2 class="s3-headline">Think of it as<br><em>your own assistant.</em></h2>
+    <p class="lede" style="margin-top: 2vh; opacity: 0.85;">Imagine you have your own assistant: someone you delegate tasks to. Anything you'd hand to an assistant, try it on the AI. And like anyone new, you wouldn't expect it to nail it first time without feedback. You show it how you work, and the training honestly isn't much effort.</p>
+    <div class="s3-block">
+      <p class="s3-bridge">A few things worth knowing:</p>
+      <div class="s3-rule">
+        <div>
+          <h4>Never forgets</h4>
+          <p>Brain-dump everything you know onto it and it never forgets.</p>
+        </div>
+        <div>
+          <h4>Endless patience</h4>
+          <p>Ask it to redo something five times, or change direction halfway through. It never gets tired or takes it personally, it just tries again.</p>
+        </div>
+        <div>
+          <h4>You stay in charge</h4>
+          <p>You decide what it does and what it doesn't. The final sign-off on anything client-facing stays yours.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 4: UNEXPECTED HELPER PT 1 -->
+  <!-- SLIDE 4: UNEXPECTED HELPERS PT 1 -->
   <section class="slide slide-4">
-    <div class="slide-num">04 / 08</div>
+    <img class="brandmark" src="assets/logo-navy.png" alt="Influential">
+    <div class="slide-num">04 / 09</div>
     <div class="eyebrow">From my placement so far</div>
     <h2>Things I didn't know<br>AI could actually do.</h2>
     <div class="cases">
       <div class="case">
         <div class="case-tag">Design ingestion</div>
         <h3>Brand guidelines to Figma, in minutes</h3>
-        <p>Fed the full brand doc into AI. It built a structured, organised Figma page mapping every colour, font, and rule. Saved hours of manual setup.</p>
+        <p>Fed the full brand doc into AI. It built a structured, organised Figma page mapping every colour, font, and rule.</p>
       </div>
       <div class="case">
         <div class="case-tag">Custom tooling</div>
-        <h3>I built a Figma plugin without writing code</h3>
-        <p>Had a tedious border-inconsistency problem. AI wrote the plugin to fix it. A bespoke tool, built for one specific annoying job.</p>
+        <h3>A Figma plugin, without writing code</h3>
+        <p>Had a tedious border-inconsistency problem. AI wrote the plugin to fix it. A bespoke tool for one annoying job.</p>
       </div>
       <div class="case">
-        <div class="case-tag">Editor mode</div>
-        <h3>AI as a brutal sounding board</h3>
-        <p>Not for generating. For reviewing. Spot the logical gap, the weak argument, the thing I missed. Better than a polite reviewer.</p>
+        <div class="case-tag">Feedback</div>
+        <h3>A proper feedback partner</h3>
+        <p>Not for generating. For reviewing. Point out the logical gap, the weak argument, the thing I missed.</p>
       </div>
     </div>
+    <p class="s4-close">And it's <strong>exceptionally good at building software</strong>. Pretty much any tool you could imagine needing, it can probably make for you.</p>
   </section>
 
-  <!-- SLIDE 5: UNEXPECTED HELPER PT 2 -->
+  <!-- SLIDE 5: UNEXPECTED HELPERS PT 2 -->
   <section class="slide slide-5">
-    <div class="slide-num">05 / 08</div>
+    <img class="brandmark" src="assets/logo-white.png" alt="Influential">
+    <div class="slide-num">05 / 09</div>
     <div class="eyebrow">More from the placement</div>
-    <h2>Past "writing things,"<br>into building systems.</h2>
+    <h2>How AI supports<br>my daily routine.</h2>
     <div class="cases">
       <div class="case">
-        <div class="case-tag">Knowledge layer</div>
-        <h3>The Second Brain</h3>
-        <p>A tool-agnostic file structure that any AI agent can read. Give it a project, it pulls the right context automatically. No more re-explaining.</p>
+        <div class="case-tag">Idea storage</div>
+        <h3>Your brain's for coming up with ideas, not storing them</h3>
+        <p>I use it as a second brain. I drop in a thought or a project, and AI pulls the context back whenever I need it.</p>
       </div>
       <div class="case">
-        <div class="case-tag">Live overview</div>
-        <h3>Automated command centre</h3>
-        <p>One dashboard pulling live status from across my work tools. No manual updates. Real-time view of where everything is.</p>
+        <div class="case-tag">Repeatable workflows</div>
+        <h3>My placement command centre</h3>
+        <p>A dashboard I built to keep on top of my placement, with a workflows tab for the routines I repeat: a morning brief, an end-of-day reset, even generating slides.</p>
       </div>
       <div class="case">
         <div class="case-tag">Tiny wins</div>
-        <h3>A working QR code, in the chat window</h3>
-        <p>Needed one for the Smoking Wrapped microsite. Asked for it. Got a working PNG straight back. Five seconds.</p>
+        <h3>A messy spreadsheet, tidied in seconds</h3>
+        <p>Pasted in a rough export, asked it to clean up and reformat, and had it back usable straight away.</p>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 6: WORKSHOP -->
+  <!-- SLIDE 6: WORKSHOP / INTERVIEW -->
   <section class="slide slide-6">
-    <div class="slide-num">06 / 08</div>
-    <div class="eyebrow">Now we play</div>
-    <h2>Pick a game.<br>No marketing. No pressure.</h2>
-    <p class="lede" style="opacity: 0.95;">The point isn't to make you do more work in a workshop. It's to get you comfortable poking at AI until it does something surprising. Pick one.</p>
-    <div class="s6-options">
-      <div class="s6-option">
-        <div class="letter">A</div>
-        <h3>Prompt Battle</h3>
-        <p>Start with a bland, useless AI output. Teams refine the prompt to coax the most impressive response. Best result wins.</p>
-      </div>
-      <div class="s6-option">
-        <div class="letter">B</div>
-        <h3>Inventing the Absurd</h3>
-        <p>Conceptualise a completely useless product. Generate specs, a PR crisis, a launch pitch. Inclusive of every department.</p>
-      </div>
-      <div class="s6-option">
-        <div class="letter">C</div>
-        <h3>Build a Planet</h3>
-        <p>Invent a planet from scratch. Ecosystem, inhabitants, laws, language. Tests how well AI holds complex context.</p>
-      </div>
-    </div>
+    <img class="brandmark" src="assets/logo-white.png" alt="Influential">
+    <div class="slide-num">06 / 09</div>
+    <div class="eyebrow">Let's actually try one</div>
+    <h2>Let it interview you.</h2>
+    <p class="lede" style="opacity: 0.95; max-width: 80ch;">The biggest difference I've found isn't a clever prompt. It's giving the AI enough context about you and your role. So instead of explaining all that, let it ask. Paste this in and answer honestly.</p>
+    <div class="s6-prompt">"Before we do any work together, I want you to interview me so you understand my role properly. Ask me one question at a time. Cover what I do day to day, who my clients and audience are, what I'm responsible for, what 'good' looks like in my work, the parts I find tedious, and how I like things done. Keep going until you genuinely understand my role, then summarise back everything you've learned so I can save it and reuse it. Don't move on from a question until the answer is clear."</div>
+    <p class="s6-save"><strong>Then keep the summary.</strong> Paste it into your AI's memory or custom instructions, or a doc you reuse, so it never starts from zero again.</p>
   </section>
 
-  <!-- SLIDE 7: CONCLUSION -->
+  <!-- SLIDE 7: SECURITY & HYGIENE -->
   <section class="slide slide-7">
-    <div class="slide-num">07 / 08</div>
-    <div class="eyebrow">Where this leaves us</div>
-    <h2>The team that experiments<br>wins the next 18 months.</h2>
-    <p class="s7-cta">You don't need to become an engineer. You need to stop being afraid of the blank prompt box.</p>
-    <div class="s7-three">
-      <div>
-        <h4>Try one thing this week</h4>
-        <p>Pick a task you hate. Try to get AI to take 30% of it off you.</p>
+    <img class="brandmark" src="assets/logo-navy.png" alt="Influential">
+    <div class="slide-num">07 / 09</div>
+    <div class="eyebrow">A few good habits</div>
+    <h2>Nothing scary. <em style="font-style:normal;color:var(--insights);">Just a bit of good hygiene.</em></h2>
+    <p class="lede" style="margin-top: 1vh; max-width: 70ch;">These habits will let us use AI on real work without anyone getting nervous.</p>
+    <div class="habits">
+      <div class="habit">
+        <h4>Data security</h4>
+        <p>Where you can, take client details or anything sensitive out before they go into AI. And the safety net: on a proper enterprise account, nothing you put in is used to train future models, so it shouldn't leak out.</p>
       </div>
-      <div>
-        <h4>Share what worked</h4>
-        <p>The best prompts and tricks should circulate. Slack channel for it.</p>
+      <div class="habit">
+        <h4>Transparency</h4>
+        <p>Be open about when AI helped draft something, rather than passing it off as something it wasn't.</p>
       </div>
-      <div>
-        <h4>Push enterprise access</h4>
-        <p>Once we have safe tools, we can stop being cautious about real client work.</p>
+      <div class="habit">
+        <h4>Human in the loop</h4>
+        <p>A human checks anything client-facing. Verify the facts and figures, AI can sound confident even when it's wrong.</p>
+      </div>
+      <div class="habit">
+        <h4>Keep it in the open</h4>
+        <p>Flag new tools in one place so IT can check them and we all learn from each other.</p>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 8: TOOLKIT -->
+  <!-- SLIDE 8: THE ASK -->
   <section class="slide slide-8">
-    <div class="slide-num">08 / 08</div>
-    <div class="eyebrow">Appendix / take this away</div>
-    <h2>The tool-kit.</h2>
-    <p class="lede" style="margin-top: 1vh;">Not everything is AI. These are the things that quietly make the AI workflow actually work.</p>
-    <div class="toolkit">
-      <div class="tool">
-        <div class="name"><h3>Raycast</h3><span class="role">Daily driver</span></div>
-        <p>Clipboard history, calculator, hex-colour previews, image previews. The thing I open more than anything else.</p>
+    <img class="brandmark" src="assets/logo-white.png" alt="Influential">
+    <div class="slide-num">08 / 09</div>
+    <div class="eyebrow">An open invite</div>
+    <h2>It gets better if we share it.</h2>
+    <p class="lede" style="margin-top: 1vh; max-width: 70ch;">If you find a tool or workflow that helps you, it almost certainly helps someone else too. The whole thing gets better the more we pool it.</p>
+    <div class="s8-three">
+      <div>
+        <h4>An opt-in channel</h4>
+        <p>I'd like to start a Slack channel for this. Totally optional. I'd post what I build and find; you post whatever you like.</p>
       </div>
-      <div class="tool">
-        <div class="name"><h3>Whisper Flow</h3><span class="role">Lowers the bar</span></div>
-        <p>Voice-rant your thought, AI structures it. Removes the "I don't know how to write a good prompt" block.</p>
+      <div>
+        <h4>Wins and flops</h4>
+        <p>Share what worked, and what didn't. Someone might have a fix, or we just learn where AI falls down together.</p>
       </div>
-      <div class="tool">
-        <div class="name"><h3>Claude / ChatGPT (Enterprise)</h3><span class="role">The brains</span></div>
-        <p>For writing, editing, ideation, summarising. Pick one. Pay for it. Use it daily.</p>
+      <div>
+        <h4>Honest and transparent</h4>
+        <p>That's the whole game. As long as we're open about it, we figure out the right way to use this as a team.</p>
       </div>
-      <div class="tool">
-        <div class="name"><h3>Claude Code / Cursor</h3><span class="role">For makers</span></div>
-        <p>If you're building anything (a microsite, a plugin, a dashboard), these turn ideas into working things fast.</p>
+    </div>
+    <p class="s8-try">Try one thing: pick something you do on repeat and don't enjoy, then see how much AI can help you with it.</p>
+  </section>
+
+  <!-- SLIDE 9: TOOLKIT & TAKEAWAYS -->
+  <section class="slide slide-9">
+    <img class="brandmark" src="assets/logo-navy.png" alt="Influential">
+    <div class="slide-num">09 / 09</div>
+    <div class="eyebrow">The cheat sheet</div>
+    <h2>Take these away.</h2>
+    <div class="s9-grid">
+      <div class="s9-col">
+        <h4 class="section">Try these today</h4>
+        <div class="s9-item">
+          <h3>The "interview me" prompt</h3>
+          <p>Copy-paste it into any AI to get better, role-aware outputs.</p>
+        </div>
+        <div class="s9-item">
+          <h3>The humanizer</h3>
+          <p>A text file you give your AI once. It saves to memory, then quietly cleans the AI-tells out of everything you write. Add it once, it just works.</p>
+        </div>
+        <div class="s9-item">
+          <h3>Custom writing styles</h3>
+          <p>Teach the AI how you write, by pasting in past work or describing your style.</p>
+        </div>
+      </div>
+      <div class="s9-col">
+        <h4 class="section">The toolkit</h4>
+        <div class="s9-item">
+          <h3>Raycast</h3>
+          <p>It remembers everything you copy, so you can scroll back and paste something from earlier. Plus a calculator and quick image previews. The thing I open more than anything.</p>
+        </div>
+        <div class="s9-item">
+          <h3>Wispr Flow</h3>
+          <p>Voice-rant your thought, AI structures it. Removes the "I don't know how to write a good prompt" block.</p>
+        </div>
+        <div class="s9-item">
+          <h3>Claude / ChatGPT Enterprise</h3>
+          <p>For writing, editing, ideation, summarising. One for us to settle on as a team, then get everyone onto the proper enterprise plan.</p>
+        </div>
+        <a class="s9-link" href="tool-guide.html">For the full tool set and tiered skills → the Departmental Tool Guide</a>
       </div>
     </div>
   </section>
@@ -569,7 +432,7 @@
 
 <div class="nav">
   <button id="prev" aria-label="Previous">‹</button>
-  <span id="counter">1 / 8</span>
+  <span id="counter">1 / 9</span>
   <button id="next" aria-label="Next">›</button>
 </div>
 
@@ -587,6 +450,10 @@
 
   document.getElementById('next').addEventListener('click', () => show(current + 1));
   document.getElementById('prev').addEventListener('click', () => show(current - 1));
+
+  // deep-link to a slide via #n (e.g. deck.html#6)
+  const fromHash = parseInt(location.hash.replace('#', ''), 10);
+  if (fromHash >= 1 && fromHash <= slides.length) show(fromHash - 1);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { show(current + 1); e.preventDefault(); }
